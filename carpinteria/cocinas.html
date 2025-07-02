@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocinas a Medida - Maderas Finas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f5f0;
+        }
+        /* Estilos para el logo */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .logo {
+            height: 80px;
+            width: auto;
+            max-width: 200px;
+            transition: transform 0.3s;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        header {
+            background-color: #5c3a21;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        nav {
+            background-color: #8b5a2b;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+            position: relative;
+        }
+        .hero {
+            background-image: url('cocina-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .gallery-item h3 {
+            padding: 10px 10px 0;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .gallery-item p {
+            padding: 0 15px 15px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .qr-section {
+            background-color: rgba(245, 245, 245, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .qr-code-container {
+            margin: 20px auto;
+            max-width: 300px;
+        }
+        #qrcode {
+            margin: 0 auto;
+            padding: 15px;
+            background: white;
+            display: inline-block;
+        }
+        .qr-section a {
+            color: #25d366;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        footer {
+            background-color: #5c3a21;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        /* Carrusel de fondo */
+        .background-carousel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .carousel-slide.active {
+            opacity: 0.3;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(249, 245, 240, 0.7);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Carrusel de fondo -->
+    <div class="background-carousel">
+        <div class="carousel-slide" style="background-image: url('images/carrusel1.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('images/carrusel2.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('images/carrusel3.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('images/carrusel4.jpg')"></div>
+    </div>
+
+    <!-- Logo añadido aquí -->
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="logotipo.png" alt="Maderas Finas - Logo" class="logo">
+        </a>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Cocinas a Medida</h1>
+            <p>Diseños personalizados que se adaptan a tu espacio y estilo</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cocinas.html">Cocinas</a></li>
+            <li><a href="armarios.html">Armarios</a></li>
+            <li><a href="baños.html">Muebles de Baño</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div>
+            <h2>Transforma tu cocina con nuestros diseños</h2>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section>
+            <h2>Nuestros Trabajos de Cocina</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/cocina1.jpg" alt="Cocina moderna en roble">
+                    <h3>Cocina Moderna en Roble</h3>
+                    <p>Elegante diseño contemporáneo con muebles altos y bajos en roble natural, encimeras de cuarzo y sistema de iluminación LED integrado. Perfecta para espacios amplios.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina2.jpg" alt="Cocina rústica con detalles">
+                    <h3>Estilo Rústico con Detalles</h3>
+                    <p>Encanto campestre con madera envejecida, herrajes de hierro forjado y azulejos artesanales. Incluye isla central con superficie de mármol y zona de desayuno.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina3.jpg" alt="Cocina minimalista">
+                    <h3>Diseño Minimalista</h3>
+                    <p>Líneas limpias y funcionales con muebles lacados en blanco mate, tiradores ocultos y electrodomésticos empotrados. Optimización de espacio con soluciones inteligentes.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina4.jpg" alt="Cocina blanca brillante">
+                    <h3>Cocina Blanca Brillante</h3>
+                    <p>Ambiente luminoso con muebles lacados en blanco brillante, encimera de granito blanco cristal y sistema de almacenaje con organizadores internos.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina5.jpg" alt="Cocina con isla central">
+                    <h3>Cocina con Isla Central</h3>
+                    <p>Diseño multifuncional con isla de doble altura que incluye zona de preparación, almacenaje y barra desayunadora. Madera de nogal con acabado satinado.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina6.jpg" alt="Cocina de madera natural">
+                    <h3>Madera Natural</h3>
+                    <p>Calidez y autenticidad con muebles en pino macizo con vetas naturales, complementados con encimera de resina epoxi y detalles en acero inoxidable.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina7.jpg" alt="Cocina para espacio pequeño">
+                    <h3>Solución para Espacios Pequeños</h3>
+                    <p>Diseño compacto con muebles de 45cm de profundidad, estantes abiertos y electrodomésticos de tamaño reducido. Maximiza cada centímetro disponible.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina8.jpg" alt="Cocina estilo vintage">
+                    <h3>Estilo Vintage</h3>
+                    <p>Recreación de cocinas clásicas con muebles en tonos pastel, tiradores de porcelana y encimera de mármol carrara. Incluye horno empotrado estilo años 50.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina9.jpg" alt="Cocina integral personalizada">
+                    <h3>Cocina Integral Personalizada</h3>
+                    <p>Solución completa con muebles a medida que aprovechan cada rincón, incluyendo zona de lavavajillas integrado, despensero y cajones organizadores.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina10.jpg" alt="Cocina en tonos oscuros">
+                    <h3>Elegancia en Tonos Oscuros</h3>
+                    <p>Diseño sofisticado con muebles en wengué oscuro, encimera de cuarzo negro y detalles dorados. Iluminación ambiental que resalta los materiales.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina11.jpg" alt="Cocina abierta al comedor">
+                    <h3>Cocina Abierta al Comedor</h3>
+                    <p>Integración perfecta entre cocina y zona de estar, con barra de granito que sirve como separador visual y punto de encuentro familiar.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cocina12.jpg" alt="Cocina de lujo">
+                    <h3>Diseño de Lujo</h3>
+                    <p>Alta gama con muebles en madera de cerezo italiano, encimera de mármol statuario, nevera empotrada y sistema de extracción profesional invisible.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="qr-section">
+            <h2>¿Interesado en una cocina a medida?</h2>
+            <p>Escanea este código para contactarnos por WhatsApp:</p>
+            <div class="qr-code-container">
+                <div id="qrcode"></div>
+                <p>O haz clic <a href="https://wa.me/524495855387?text=Hola,%20estoy%20interesado%20en%20una%20cocina%20a%20medida" target="_blank">aquí</a></p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Maderas Finas - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generar código QR
+        function generateQRCode() {
+            const whatsappNumber = "524495855387";
+            const message = encodeURIComponent("Hola, estoy interesado en una cocina a medida");
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            
+            new QRCode(document.getElementById("qrcode"), {
+                text: whatsappUrl,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Carrusel de fondo
+        function initCarousel() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentSlide = 0;
+            
+            // Mostrar primera slide
+            slides[currentSlide].classList.add('active');
+            
+            // Cambiar de slide cada 5 segundos
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Iniciar carrusel
+            initCarousel();
+            
+            // Generar QR Code
+            if (document.getElementById('qrcode')) {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js';
+                script.onload = generateQRCode;
+                document.body.appendChild(script);
+            }
+        });
+    </script>
+</body>
+</html>

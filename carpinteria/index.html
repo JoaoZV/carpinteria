@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARPINTERIA ZAMVAZ - Fabricación de muebles a medida</title>
+    <link rel="icon" href="logotipo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f5f0;
+        }
+        /* Estilos para el logo */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .logo {
+            height: 80px;
+            width: auto;
+            max-width: 200px;
+            transition: transform 0.3s;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        header {
+            background-color: #5c3a21;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        nav {
+            background-color: #8b5a2b;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+            position: relative;
+        }
+        .hero {
+            background-image: url('cocina-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+        .hero h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .service-card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #5c3a21;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .service-card a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #5c3a21;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        /* Estilos para la sección QR */
+        .qr-section {
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .qr-code-container {
+            margin: 20px auto;
+            max-width: 300px;
+        }
+        #qrcode {
+            margin: 0 auto;
+            padding: 15px;
+            background: white;
+            display: inline-block;
+        }
+        .qr-section a {
+            color: #25d366;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .qr-section a:hover {
+            text-decoration: underline;
+        }
+        /* Carrusel de fondo */
+        .background-carousel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .carousel-slide.active {
+            opacity: 0.3;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(249, 245, 240, 0.7);
+            z-index: -1;
+        }
+        /* Estilos para redes sociales */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        .facebook {
+            background-color: #3b5998;
+        }
+        .tiktok {
+            background-color: #000000;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Carrusel de fondo -->
+    <div class="background-carousel">
+        <div class="carousel-slide" style="background-image: url('images/carrusel1.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('images/carrusel2.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('images/carrusel3.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('images/carrusel4.jpg')"></div>
+    </div>
+
+    <!-- Logo añadido aquí -->
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="logotipo.png" alt="CARPINTERIA ZAMVAZ - Logo" class="logo">
+        </a>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>CARPINTERIA ZAMVAZ</h1>
+            <p>Fabricación artesanal de muebles a medida</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cocinas.html">Cocinas</a></li>
+            <li><a href="armarios.html">Armarios</a></li>
+            <li><a href="baños.html">Baños</a></li>
+        </ul>
+    </nav>
+    
+    <section id="inicio" class="hero">
+        <div>
+            <h1>Muebles hechos a tu medida</h1>
+            <p>Calidad artesanal con materiales seleccionados</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="services">
+                <div class="service-card">
+                    <img src="cocina.jpg" alt="Cocina personalizada">
+                    <h3>Cocinas a medida</h3>
+                    <p>Diseño y fabricación de cocinas totalmente personalizadas según tus necesidades y espacio.</p>
+                    <a href="cocinas.html">Ver más ejemplos →</a>
+                </div>
+                <div class="service-card">
+                    <img src="armario.jpeg" alt="Armario empotrado">
+                    <h3>Armarios empotrados</h3>
+                    <p>Soluciones de almacenaje perfectamente adaptadas a tus paredes y preferencias.</p>
+                    <a href="armarios.html">Ver más ejemplos →</a>
+                </div>
+                <div class="service-card">
+                    <img src="baño.jpg" alt="Mueble de baño">
+                    <h3>Muebles de baño</h3>
+                    <p>Fabricados con maderas tratadas especialmente para ambientes húmedos.</p>
+                    <a href="baños.html">Ver más ejemplos →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="proceso">
+            <h2>Nuestro Proceso de Trabajo</h2>
+            <ol>
+                <li><strong>Consulta:</strong> Nos cuentas tu idea o necesidad.</li>
+                <li><strong>Diseño:</strong> Creamos un diseño adaptado a tus requerimientos.</li>
+                <li><strong>Cotización:</strong> Te enviamos un presupuesto detallado por email.</li>
+                <li><strong>Aprobación:</strong> Confirmas el diseño y presupuesto.</li>
+                <li><strong>Fabricación:</strong> Construimos tu mueble con los mejores materiales.</li>
+                <li><strong>Instalación:</strong> Lo colocamos en tu hogar (opcional).</li>
+            </ol>
+        </section>
+        
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> cotizaciones@carpinteriazamvaz.com</p>
+                <p><strong>Teléfono:</strong> 449 585 5387</p>
+                <p><strong>Horario:</strong> Lunes a Viernes de 9:00 a 18:00</p>
+                <p><strong>Dirección:</strong> Av. Carpinteros 123, Col. Mueblera, Aguascalientes</p>
+            </div>
+            
+            <div class="social-icons">
+                <a href="https://www.facebook.com/tupagina" class="social-icon facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.tiktok.com/@tucuenta" class="social-icon tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CARPINTERIA ZAMVAZ - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generar código QR
+        function generateQRCode() {
+            const whatsappNumber = "524495855387";
+            const message = encodeURIComponent("Hola, estoy interesado en una cotización de muebles");
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            
+            new QRCode(document.getElementById("qrcode"), {
+                text: whatsappUrl,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Carrusel de fondo
+        function initCarousel() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentSlide = 0;
+            
+            // Mostrar primera slide
+            slides[currentSlide].classList.add('active');
+            
+            // Cambiar de slide cada 5 segundos
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Iniciar carrusel
+            initCarousel();
+            
+            // Generar QR Code
+            if (document.getElementById('qrcode')) {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js';
+                script.onload = generateQRCode;
+                document.body.appendChild(script);
+            }
+        });
+    </script>
+    
+</body>
+</html>
